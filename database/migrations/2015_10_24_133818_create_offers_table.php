@@ -16,9 +16,10 @@ class CreateOffersTable extends Migration
             $table->increments('id');
             $table->enum('type', ['single', 'wg', 'house']);
             $table->integer('rooms');
+            $table->double('size');
             $table->string('location');
             $table->date('available');
-            $table->string('rent');
+            $table->double('rent');
             $table->integer('host_id')->unsigned();
             $table->foreign('host_id')
                 ->references('id')

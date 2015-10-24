@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Picture
+Route::get('picture/{picture}', 'PictureController@getPicture');
+
 // Auth
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', 'Auth\AuthController@getLogin');
@@ -31,5 +34,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'host', 'middleware' => ['auth', 'host']], function () {
     Route::get('profile', 'Host\ProfileController@getProfile');
     Route::put('profile', 'Host\ProfileController@putProfile');
+
     Route::resource('offers', 'Host\OfferController');
+    Route::get('offers/{offer}/delete', 'Host\OfferController@delete');
 });

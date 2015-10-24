@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/Host/OfferController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/PictureController.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/User.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/host/offers/delete.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/host/offers/edit.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/host/offers/form.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/host/offers/index.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php" charset="UTF-8" />
   </component>
 </project>

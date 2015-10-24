@@ -15,11 +15,17 @@
         </thead>
         <tbody>
 
-        @foreach(Auth::user()->host->offers as $offer)
+        @foreach($offers as $offer)
         <tr>
-            <td>Titel</td>
             <td>
-                <a href="#" class="btn btn-xs btn-primary">
+                {{ getOfferTypes()[$offer->type] }} -
+                {{ $offer->location }} -
+                {{ $offer->rooms }} Zimmer -
+                {{ $offer->size }} m² -
+                {{ $offer->rent }} €
+            </td>
+            <td class="text-right">
+                <a href="{{ url('host/offers/'.$offer->id.'/edit') }}" class="btn btn-xs btn-primary">
                     Bearbeiten
                 </a>
             </td>
