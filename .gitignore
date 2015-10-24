@@ -1,9 +1,12 @@
 /vendor
 /node_modules
-./idea
 Homestead.yaml
 Homestead.json
 .env
 composer.phar
-.idea
-.vagrant
+*.iml
+.idea/
+/out/
+.idea_modules/
+atlassian-ide-plugin.xml
+.vagrant/

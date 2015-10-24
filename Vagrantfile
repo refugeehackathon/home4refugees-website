@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "provision.sh"
 
   config.ssh.keep_alive = true
-  config.ssh.forward_agent = false
+  config.ssh.forward_agent = true
   config.ssh.forward_x11 = false
   config.vagrant.host = :detect
 end
