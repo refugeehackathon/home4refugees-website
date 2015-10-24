@@ -29,7 +29,7 @@ class BuildMenu
         } else {
             Menu::make('rightmenu', function ($menu) {
                 $menu->add('Login', 'auth/login');
-                $menu->add('Registrieren', 'auth/register');
+                $menu->add('Registrieren', 'auth/register')->active('auth/register/*');
             });
         }
 

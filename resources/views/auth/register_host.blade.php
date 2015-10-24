@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    {!! Form::open(array('url' => 'auth/register', 'class' => 'form-horizontal')) !!}
+    <h2>Anbieter Registrierung</h2>
+    {!! Form::open(array('url' => 'auth/register/host', 'class' => 'form-horizontal')) !!}
 
     <div class="form-group">
         <label for="email" class="col-sm-3 control-label">E-Mail</label>
