@@ -18,7 +18,7 @@ class BuildMenu
     public function handle($request, Closure $next)
     {
         Menu::make('leftmenu', function ($menu) {
-            $menu->add('Startseite', '');
+            $menu->add('Startseite', '')->active('home/*');
             if(Auth::check()) {
                 if(Auth::user()->isHost()) {
                     $menu->add('Meine Anzeigen', 'host/offers')->active('host/offers/*');

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home
+Route::get('/', 'HomeController@index');
+Route::get('home/offer/{offer}', 'HomeController@showOffer');
 
 // Picture
 Route::get('picture/{picture}', 'PictureController@getPicture');
