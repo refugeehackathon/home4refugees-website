@@ -44,6 +44,7 @@ cd /var/www
 curl -sS 'https://getcomposer.org/installer' | php
 php composer.phar install
 
+# init laravel
 cp .env.example .env
 php artisan key:generate
 
