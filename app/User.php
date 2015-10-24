@@ -36,4 +36,20 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function isRefugee() {
+        return !!$this->refugee();
+    }
+
+    public function isHost() {
+        return !!$this->host();
+    }
+
+    public function refugee() {
+        return $this->hasOne(Refugee::class);
+    }
+
+    public function host() {
+        return $this->hasOne(Host::class);
+    }
 }

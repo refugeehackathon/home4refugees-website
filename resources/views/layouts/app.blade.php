@@ -14,7 +14,7 @@
     <!-- Bootstrap Table -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.0/bootstrap-table.min.css">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{ asset('dist/app/css/layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/dist/app/css/layout.css') }}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -24,17 +24,53 @@
 </head>
 <body>
 
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Home4Refugees</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @foreach(Menu::get('leftmenu')->roots() as $menu)
+                    <li {!! $menu->attributes() !!}><a href="{{ $menu->url() }}">{{ $menu->title }}</a></li>
+                @endforeach
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if(Auth::check())
+                    <li>
+                        <a href="#">
+                            Angemeldet als
+                            {{ Auth::user()->email }}
+                        </a>
+                    </li>
+                @endif
+                @foreach(Menu::get('rightmenu')->roots() as $menu)
+                    <li {!! $menu->attributes() !!}><a href="{{ $menu->url() }}">{{ $menu->title }}</a></li>
+                @endforeach
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
 <div class="container">
-   Hello World
-</div>
+
+    @include('partials.validation')
+    @yield('content')
+
+</div> <!-- /container -->
 
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <!-- Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- Bootbox -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <!-- Custom Javascript -->
 <script>
     // Global url helper
