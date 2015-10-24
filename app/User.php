@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,11 +38,11 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     public function isRefugee() {
-        return !!$this->refugee();
+        return !!$this->refugee;
     }
 
     public function isHost() {
-        return !!$this->host();
+        return !!$this->host;
     }
 
     public function refugee() {

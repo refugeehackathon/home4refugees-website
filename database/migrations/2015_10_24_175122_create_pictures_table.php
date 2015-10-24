@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOffersTable extends Migration
+class CreatePicturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,13 @@ class CreateOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('offers', function (Blueprint $table) {
+        Schema::create('pictures', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('type', ['single', 'wg', 'house']);
-            $table->integer('rooms');
-            $table->string('location');
-            $table->date('available');
-            $table->string('rent');
-            $table->integer('host_id')->unsigned();
-            $table->foreign('host_id')
+            $table->string('extension');
+            $table->integer('offer_id')->unsigned();
+            $table->foreign('offer_id')
                 ->references('id')
-                ->on('hosts')
+                ->on('offers')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -35,6 +31,6 @@ class CreateOffersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('offers');
+        Schema::drop('pictures');
     }
 }

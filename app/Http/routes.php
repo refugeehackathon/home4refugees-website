@@ -15,9 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// Auth
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('login', 'Auth\AuthController@getLogin');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('logout', 'Auth\AuthController@getLogout');
 
-Route::get('auth/register/refugee', 'Auth\AuthController@getRegisterRefugee');
-Route::post('auth/register/refugee', 'Auth\AuthController@postRegister');
+    Route::get('register/refugee', 'Auth\AuthController@getRefugeeRegister');
+    Route::post('register/refugee', 'Auth\AuthController@postRefugeeRegister');
+    Route::get('register/host', 'Auth\AuthController@getHostRegister');
+    Route::post('register/host', 'Auth\AuthController@postHostRegister');
+});
+
+// Host
+Route::group(['prefix' => 'host', 'middleware' => ['auth', 'host']], function () {
+    Route::get('profile', 'Host\ProfileController@getProfile');
+    Route::put('profile', 'Host\ProfileController@putProfile');
+    Route::resource('offers', 'Host\OfferController');
+});

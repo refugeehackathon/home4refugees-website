@@ -14,6 +14,9 @@ class CreateHostsTable extends Migration
     {
         Schema::create('hosts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('mobile');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')

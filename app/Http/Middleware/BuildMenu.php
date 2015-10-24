@@ -19,6 +19,14 @@ class BuildMenu
     {
         Menu::make('leftmenu', function ($menu) {
             $menu->add('Startseite', '');
+            if(Auth::check()) {
+                if(Auth::user()->isHost()) {
+                    $menu->add('Meine Anzeigen', 'host/offers')->active('host/offers/*');
+                    $menu->add('Mein Profil', 'host/profile');
+                } else {
+                    $menu->add('Mein Profil', 'refugee/profile');
+                }
+            }
             $menu->add('Über', 'about');
         });
 
@@ -29,7 +37,8 @@ class BuildMenu
         } else {
             Menu::make('rightmenu', function ($menu) {
                 $menu->add('Login', 'auth/login');
-                $menu->add('Registrieren', 'auth/register')->active('auth/register/*');
+                $menu->add('Registrieren Flüchtling', 'auth/register/refugee');
+                $menu->add('Registrieren Anbieter', 'auth/register/host');
             });
         }
 

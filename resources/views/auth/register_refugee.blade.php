@@ -24,6 +24,29 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-6">
+            {!! Form::text('name', '', ['id' => 'name', 'class' => 'form-control', 'placeholder' => 'Name']) !!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="sex" class="col-sm-3 control-label">Geschlecht</label>
+        <div class="col-sm-6">
+            {!! Form::select('sex', ['w'=>'Weiblich', 'm'=>'Männlich'], null, ['id' => 'sex', 'class' => 'form-control']) !!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="birthday" class="col-sm-3 control-label">Geburtsdatum</label>
+        <div class="col-sm-6">
+            {!! Form::text('birthday', '', ['id' => 'birthday', 'class' => 'form-control', 'placeholder' => 'TT.MM.JJJJ']) !!}
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
             <button type="submit" class="btn btn-primary">Registrieren</button>

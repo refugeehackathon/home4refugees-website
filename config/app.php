@@ -146,6 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Menus\MenusServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class
 
     ],
 
@@ -198,6 +199,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Menu'      => Caffeinated\Menus\Facades\Menu::class,
+        'Flash'     => Laracasts\Flash\Flash::class
 
     ],
 

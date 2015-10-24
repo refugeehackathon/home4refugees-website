@@ -48,6 +48,11 @@
                         <a href="#">
                             Angemeldet als
                             {{ Auth::user()->email }}
+                            @if(Auth::user()->isHost())
+                                (Anbieter)
+                            @else
+                                (Flüchtling)
+                            @endif
                         </a>
                     </li>
                 @endif
@@ -61,6 +66,7 @@
 
 <div class="container">
 
+    @include('partials.flash')
     @include('partials.validation')
     @yield('content')
 
