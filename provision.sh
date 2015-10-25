@@ -55,6 +55,6 @@ php composer.phar install
 # init laravel
 cp .env.example .env
 php artisan key:generate
-php artisan migrate
+php artisan migrate:refresh --seed
 
 echo "You've been provisioned"
