@@ -14,6 +14,7 @@
 // Home
 Route::get('/', 'HomeController@index');
 Route::get('home/offer/{offer}', 'HomeController@showOffer');
+Route::any('home/offers', 'HomeController@showOffers');
 
 // Picture
 Route::get('picture/{picture}', 'PictureController@getPicture');
@@ -34,6 +35,15 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'host', 'middleware' => ['auth', 'host']], function () {
     Route::get('profile', 'Host\ProfileController@getProfile');
     Route::put('profile', 'Host\ProfileController@putProfile');
+
+    Route::resource('offers', 'Host\OfferController');
+    Route::get('offers/{offer}/delete', 'Host\OfferController@delete');
+});
+
+// Refugee
+Route::group(['prefix' => 'refugee', 'middleware' => ['auth', 'refugee']], function () {
+    Route::get('profile', 'Refugee\ProfileController@getProfile');
+    Route::put('profile', 'Refugee\ProfileController@putProfile');
 
     Route::resource('offers', 'Host\OfferController');
     Route::get('offers/{offer}/delete', 'Host\OfferController@delete');

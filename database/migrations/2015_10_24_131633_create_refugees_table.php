@@ -15,6 +15,8 @@ class CreateRefugeesTable extends Migration
         Schema::create('refugees', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('email');
+            $table->string('mobile');
             $table->enum('sex', ['m', 'w']);
             $table->date('birthday');
             $table->integer('user_id')->unsigned();

@@ -39,7 +39,7 @@ server {
 EOM
 sudo service nginx restart
 
-/bin/cat <<EOM >> /etc/php5/mods-available/xdebug.ini
+sudo /bin/cat <<EOM >> /etc/php5/mods-available/xdebug.ini
 xdebug.remote_enable=1
 xdebug.remote_connect_back=1
 xdebug.remote_port=9000

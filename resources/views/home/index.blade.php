@@ -9,7 +9,9 @@
 
         <div class="col-sm-6">
 
-            <h2>Angebote</h2>
+            <h2>
+                <a href="{{ url('home/offers') }}">Angebote</a>
+            </h2>
 
             @foreach($offers as $offer)
 
